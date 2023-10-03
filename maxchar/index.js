@@ -7,9 +7,9 @@
 
 function maxChar(str) {
     const charMap = {}
-    let max = 0
+    let maxNum = 0
     let maxChar = ''
-    // Ponerlo en un objeto o Map
+    // Recorrer el String como Array y ponerlo en un Objeto Map
     for (const char of str) {
         if (!charMap[char]) {
             charMap[char] = 1
@@ -17,10 +17,10 @@ function maxChar(str) {
             charMap[char]++
         }
     }
-
+    // Recorrer el Objeto Map como Objeto y asignar numero maximo con caracter maximo
     for (const char in charMap) {
-        if (charMap[char] > max) {
-            max = charMap[char]
+        if (charMap[char] > maxNum) {
+            maxNum = charMap[char]
             maxChar = char
         }
     }
