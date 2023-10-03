@@ -7,22 +7,38 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {
-    // const reverse = str.split('').reduce((revAcc, char) => char + revAcc, '')
-    // let reverse = ''
-    // for (const character of str) {
-    //     reverse = character + reverse
-    // }
-    // const reverse = str.split('').reverse().join('')
-    const reverse = str.split('').every((char, idx) => {
-        let char1 = char[idx]
-        let char2 = str[str.length - 1 - idx]
-        let compare = char1 === char2
-        debugger
-        return char1 === char2
-    })
-    console.log(reverse);
-    return reverse === str
+function palindrome1(str) {
+    let reverse = ''
+    for (const character of str) {
+        reverse = character + reverse
+    }
+    return str === reverse
 }
-palindrome('abcde')
-module.exports = palindrome;
+
+function palindrome2(str) {
+    const reverse = str.split('').reverse().join('')
+    return str === reverse
+}
+
+function palindrome3(str) {
+    const reverse = str.split('').reduce((revAcc, char) => char + revAcc, '')
+    return str === reverse
+}
+
+function palindromeExplicado(str) {
+    const evaluarPrimeroConUltimo = str.split('').every((char, idx) => {
+        let char1 = str[idx]
+        let char2 = str[str.length - 1 - idx]
+        let comparar = char1 === char2
+        debugger
+        return comparar
+    })
+    console.log(evaluarPrimeroConUltimo);
+    return evaluarPrimeroConUltimo
+}
+
+function palindrome4(str) {
+    return str.split('').every((char, i) => str[i] === str[str.length - 1 - i])
+}
+palindrome('pennep')
+module.exports = palindrome4;
