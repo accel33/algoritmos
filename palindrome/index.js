@@ -27,11 +27,10 @@ function palindrome3(str) {
 
 function palindromeExplicado(str) {
     const evaluarPrimeroConUltimo = str.split('').every((char, idx) => {
-        let char1 = str[idx]
+        // let char1 = str[idx] Esto es lo mismo que char
         let char2 = str[str.length - 1 - idx]
-        let comparar = char1 === char2
         debugger
-        return comparar
+        return char === char2
     })
     console.log(evaluarPrimeroConUltimo);
     return evaluarPrimeroConUltimo
@@ -40,5 +39,5 @@ function palindromeExplicado(str) {
 function palindrome4(str) {
     return str.split('').every((char, i) => str[i] === str[str.length - 1 - i])
 }
-palindrome('pennep')
-module.exports = palindrome4;
+palindromeExplicado('pennep')
+module.exports = palindromeExplicado;
